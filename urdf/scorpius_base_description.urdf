@@ -1,0 +1,308 @@
+<robot
+  name="scorpius_base_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0430461816591447 -0.0999700015416253 -0.0252003882676626"
+        rpy="0 0 0" />
+      <mass
+        value="0.695201759420563" />
+      <inertia
+        ixx="0.0292099358589963"
+        ixy="-4.69872062623796E-07"
+        ixz="-3.00386636532859E-08"
+        iyy="0.000521513476559929"
+        iyz="-0.000518776673898845"
+        izz="0.0294377821647163" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="carriage_base">
+    <inertial>
+      <origin
+        xyz="0.0678128630425798 0.000156693213847599 0.00906572332536677"
+        rpy="0 0 0" />
+      <mass
+        value="0.112932852597131" />
+      <inertia
+        ixx="0.000168996514994476"
+        ixy="-1.21595914488456E-08"
+        ixz="-6.33431160390464E-07"
+        iyy="0.000168948390924987"
+        iyz="-8.8863162616862E-08"
+        izz="0.000329383199257969" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/carriage_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/carriage_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="carriage_base_joint"
+    type="fixed">
+    <origin
+      xyz="-0.0430500000000007 0.0685000000000467 -0.0152999999999998"
+      rpy="1.20412995427672E-14 2.61195978578556E-14 -1.57079632679491" />
+    <parent
+      link="base_link" />
+    <child
+      link="carriage_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="camera_assembly">
+    <inertial>
+      <origin
+        xyz="-0.0098633145561125 3.40033294206205E-05 -0.446175237077351"
+        rpy="0 0 0" />
+      <mass
+        value="0.73261938874222" />
+      <inertia
+        ixx="0.0403482866621294"
+        ixy="3.79021549751088E-08"
+        ixz="0.000684917405988002"
+        iyy="0.0411391594198208"
+        iyz="-1.11174055524385E-05"
+        izz="0.00144196755315276" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/camera_assembly.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/camera_assembly.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_assembly_joint"
+    type="fixed">
+    <origin
+      xyz="-0.227150000000011 -0.181499999999967 0.584757142857134"
+      rpy="2.58410166493983E-14 -1.20412995427671E-14 -1.97634413068826E-14" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera_assembly" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="camera">
+    <inertial>
+      <origin
+        xyz="0.0460942312677116 5.89496362908663E-05 0.0120825271177475"
+        rpy="0 0 0" />
+      <mass
+        value="0.0548652828884031" />
+      <inertia
+        ixx="6.99395203623227E-05"
+        ixy="-9.65763596898107E-08"
+        ixz="3.21146117466996E-08"
+        iyy="6.26127944150973E-06"
+        iyz="1.95459400048947E-09"
+        izz="6.88438963587466E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 -4.39523648562471E-46" />
+    <parent
+      link="camera_assembly" />
+    <child
+      link="camera" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="back_wall">
+    <inertial>
+      <origin
+        xyz="0 -1.04083408558608E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="4.12738428551396" />
+      <inertia
+        ixx="0.284640241971556"
+        ixy="3.77542752078858E-20"
+        ixz="3.58089755540341E-20"
+        iyy="0.152460760227972"
+        iyz="6.41182641657873E-18"
+        izz="0.132248271481677" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/back_wall.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/back_wall.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_wall_joint"
+    type="fixed">
+    <origin
+      xyz="-0.148050000000007 -0.13349999999996 0.28515357141241"
+      rpy="2.59405296280773E-14 -1.20412995427672E-14 -1.51190083205341E-14" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_wall" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="ground">
+    <inertial>
+      <origin
+        xyz="0 -2.42861286636753E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="3.379" />
+      <inertia
+        ixx="0.108268791666667"
+        ixy="-5.18097717505661E-18"
+        ixz="-6.7094514261586E-20"
+        iyy="0.0836654479166667"
+        iyz="-6.15510608338125E-20"
+        izz="0.191877922916667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/ground.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/ground.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ground_joint"
+    type="fixed">
+    <origin
+      xyz="0.189449999999997 -0.133499999999956 -0.0527000000000023"
+      rpy="2.61195978578556E-14 -1.20412995427672E-14 -1.51190083205341E-14" />
+    <parent
+      link="base_link" />
+    <child
+      link="ground" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
