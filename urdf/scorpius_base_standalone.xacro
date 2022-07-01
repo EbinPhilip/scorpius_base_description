@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot
+  name="scorpius_base"
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find scorpius_base_description)/urdf/scorpius_base_description.xacro" />
+
+  <xacro:property name="carriage_base" value="carriage_base" />
+  <xacro:property name="base_link" value="base_link" />
+
+  <link name="base_link" />
+
+  <xacro:scorpius_base_description base_link="${base_link}" carriage_base="${carriage_base}" />
+  
+</robot>

@@ -1,0 +1,232 @@
+<robot
+    xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="scorpius_base_description" params="base_link carriage_base:=carriage_base">
+        <link
+            name="${carriage_base}"></link>
+        <joint
+            name="carriage_link_base_joint"
+            type="fixed">
+            <origin
+                xyz="0.04 0.512000000000001 0.0324"
+                rpy="0 0 -1.5707963267949" />
+            <parent
+                link="${base_link}" />
+            <child
+                link="${carriage_base}" />
+            <axis
+                xyz="0 0 0" />
+        </joint>
+        <link
+            name="camera_assembly">
+            <inertial>
+                <origin
+                    xyz="-0.0098633145561125 3.40033294206205E-05 -0.446175237077351"
+                    rpy="0 0 0" />
+                <mass
+                    value="0.73261938874222" />
+                <inertia
+                    ixx="0.0403482866621294"
+                    ixy="3.79021549751088E-08"
+                    ixz="0.000684917405988002"
+                    iyy="0.0411391594198208"
+                    iyz="-1.11174055524385E-05"
+                    izz="0.00144196755315276" />
+            </inertial>
+            <visual>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://scorpius_base_description/meshes/camera_assembly.STL" />
+                </geometry>
+                <material
+                    name="">
+                    <color
+                        rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+                </material>
+            </visual>
+            <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scorpius_base_description/meshes/camera_assembly.STL" />
+      </geometry>
+    </collision> -->
+        </link>
+        <joint
+            name="camera_assembly_joint"
+            type="fixed">
+            <origin
+                xyz="-0.144099999999999 0.262 0.632457142857143"
+                rpy="-2.78581208457359E-16 -1.57772181044202E-30 -4.52132357837601E-15" />
+            <parent
+                link="base_link" />
+            <child
+                link="camera_assembly" />
+            <axis
+                xyz="0 0 0" />
+        </joint>
+        <link
+            name="camera_tilt">
+            <inertial>
+                <origin
+                    xyz="0.0288618063642316 -5.96950336384516E-11 0.0114042265638418"
+                    rpy="0 0 0" />
+                <mass
+                    value="0.0217393031475652" />
+                <inertia
+                    ixx="2.55450729458817E-05"
+                    ixy="1.01293215607618E-15"
+                    ixz="-2.45565933576805E-07"
+                    iyy="2.56233006846251E-06"
+                    iyz="1.07845354079025E-14"
+                    izz="2.40718051317745E-05" />
+            </inertial>
+            <visual>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://scorpius_base_description/meshes/camera_tilt.STL" />
+                </geometry>
+                <material
+                    name="">
+                    <color
+                        rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+                </material>
+            </visual>
+            <!-- <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://scorpius_base_description/meshes/camera_tilt.STL" />
+                </geometry>
+            </collision> -->
+        </link>
+        <joint
+            name="camera_tilt_joint"
+            type="revolute">
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 -4.39523648562471E-46" />
+            <parent
+                link="camera_assembly" />
+            <child
+                link="camera_tilt" />
+            <axis
+                xyz="0 -1 0" />
+            <limit
+                lower="-1.5708"
+                upper="1.5708"
+                effort="1.2"
+                velocity="5.236" />
+        </joint>
+        <link
+            name="camera">
+            <inertial>
+                <origin
+                    xyz="0.00286762303466655 5.89571192931744E-05 0.0145825271175503"
+                    rpy="0 0 0" />
+                <mass
+                    value="0.0548652828892073" />
+                <inertia
+                    ixx="6.99395203631743E-05"
+                    ixy="-9.65763598563644E-08"
+                    ixz="3.21146116695995E-08"
+                    iyy="6.26127944169889E-06"
+                    iyz="1.95459367439392E-09"
+                    izz="6.88438963594883E-05" />
+            </inertial>
+            <visual>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://scorpius_base_description/meshes/camera.STL" />
+                </geometry>
+                <material
+                    name="">
+                    <color
+                        rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+                </material>
+            </visual>
+            <!-- <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://scorpius_base_description/meshes/camera.STL" />
+                </geometry>
+            </collision> -->
+        </link>
+        <joint
+            name="camera_joint"
+            type="fixed">
+            <origin
+                xyz="0.0432266082329469 0 -0.00249999999999972"
+                rpy="-1.07466903392492E-15 2.22044604925026E-16 4.6791274558681E-15" />
+            <parent
+                link="camera_tilt" />
+            <child
+                link="camera" />
+            <axis
+                xyz="0 0 0" />
+        </joint>
+        <link
+            name="back_wall">
+            <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <box size="0.01 0.62 0.66571" />
+                </geometry>
+            </collision>
+        </link>
+        <joint
+            name="back_wall_joint"
+            type="fixed">
+            <origin
+                xyz="-0.065 0.31 0.332853571412416"
+                rpy="-1.79068229778251E-16 0 1.23109407972548E-16" />
+            <parent
+                link="base_link" />
+            <child
+                link="back_wall" />
+            <axis
+                xyz="0 0 0" />
+        </joint>
+        <link
+            name="ground">
+            <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <box size="0.545 0.62 0.010" />
+                </geometry>
+            </collision>
+        </link>
+        <joint
+            name="ground_joint"
+            type="fixed">
+            <origin
+                xyz="0.2725 0.31 -0.005"
+                rpy="0 0 1.23109407972548E-16" />
+            <parent
+                link="base_link" />
+            <child
+                link="ground" />
+            <axis
+                xyz="0 0 0" />
+        </joint>
+    </xacro:macro>
+</robot>
